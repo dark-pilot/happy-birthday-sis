@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Ufoma 🎉</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:linear-gradient(135deg,#ffe6f0,#f3e8ff);
+text-align:center;
+overflow-x:hidden;
+}
+
+/* HERO */
+
+header{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+padding:20px;
+background:radial-gradient(circle,#ffb6c1,#d8b4fe);
+color:white;
+}
+
+.glow{
+font-size:2.5rem;
+animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+from{ text-shadow:0 0 10px white;}
+to{ text-shadow:0 0 30px gold,0 0 40px pink;}
+}
+
+.subtext{
+max-width:500px;
+font-size:1.1rem;
+margin-top:10px;
+}
+
+button{
+padding:14px 28px;
+border:none;
+background:gold;
+border-radius:30px;
+cursor:pointer;
+font-size:1rem;
+margin-top:20px;
+}
+
+/* cake */
+
+.cake{
+font-size:70px;
+margin-top:20px;
+animation:bounce 2s infinite;
+}
+
+@keyframes bounce{
+0%{transform:translateY(0)}
+50%{transform:translateY(-10px)}
+100%{transform:translateY(0)}
+}
+
+/* PHOTO COLLAGE */
+
+/* PHOTO COLLAGE */
+
+.photo-collage{
+position:relative;
+height:360px;
+max-width:600px;
+margin:50px auto;
+}
+
+.photo{
+position:absolute;
+width:42%;
+max-width:240px;
+border-radius:15px;
+box-shadow:0 10px 30px rgba(0,0,0,0.25);
+transition:transform 0.4s ease;
+animation:float 5s ease-in-out infinite;
+}
+
+/* center photo */
+
+.center{
+left:50%;
+top:0;
+transform:translateX(-50%);
+z-index:3;
+width:45%;
+}
+
+/* left photo */
+
+.left{
+left:0;
+top:50px;
+transform:rotate(-10deg);
+z-index:2;
+}
+
+/* right photo */
+
+.right{
+right:0;
+top:50px;
+transform:rotate(10deg);
+z-index:2;
+}
+
+.photo:hover{
+transform:scale(1.05);
+z-index:4;
+}
+
+@keyframes float{
+0%{transform:translateY(0)}
+50%{transform:translateY(-10px)}
+100%{transform:translateY(0)}
+}
+
+/* LETTER */
+
+.letter{
+max-width:650px;
+margin:40px auto;
+padding:35px;
+background:#fffaf0;
+border-radius:15px;
+box-shadow:0 15px 35px rgba(0,0,0,0.2);
+border:1px solid #f0d9b5;
+font-family:Georgia,serif;
+font-size:1.05rem;
+line-height:1.9;
+color:#4a044e;
+white-space:pre-line;
+text-align:left;
+}
+
+.letter::before{
+content:"✉️";
+font-size:30px;
+display:block;
+margin-bottom:10px;
+}
+
+/* popup */
+
+.popup{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.7);
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:10;
+}
+
+.popup-content{
+background:white;
+padding:30px;
+border-radius:20px;
+max-width:300px;
+}
+
+/* floating hearts */
+
+.heart{
+position:fixed;
+bottom:-10px;
+font-size:20px;
+animation:floatUp 6s linear infinite;
+}
+
+@keyframes floatUp{
+to{
+transform:translateY(-110vh);
+opacity:0;
+}
+}
+
+/* confetti */
+
+.confetti{
+position:fixed;
+width:10px;
+height:10px;
+top:-10px;
+animation:fall 5s linear infinite;
+}
+
+@keyframes fall{
+to{ transform:translateY(110vh);}
+}
+
+/* fireworks */
+
+.firework{
+position:fixed;
+width:6px;
+height:6px;
+background:red;
+border-radius:50%;
+animation:explode 1s ease-out forwards;
+}
+
+@keyframes explode{
+to{
+transform:translateY(-100px) scale(3);
+opacity:0;
+}
+}
+
+/* MOBILE */
+/* MOBILE COLLAGE */
+
+@media (max-width:600px){
+
+.photo-collage{
+height:270px;
+}
+
+.photo{
+width:48%;
+}
+
+.center{
+width:52%;
+top:10px;
+}
+
+.left{
+top:60px;
+}
+
+.right{
+top:60px;
+}
+
+}
+
+
+
+</style>
+</head>
+
+<body>
+
+<!-- POPUP -->
+
+<div class="popup" id="popup">
+<div class="popup-content">
+<h2>🎉 Surprise 🎉</h2>
+<p>Happy Birthday to the bestest sister! 💖</p>
+<button onclick="closePopup()">Open Gift</button>
+</div>
+</div>
+
+<audio id="music" autoplay loop>
+<source src="music/Vancouver_Sleep_Clinic_-_Someone_To_Stay_acoustic_(mp3.pm).mp3" type="audio/mpeg">
+</audio>
+
+<header>
+
+<h1 class="glow">Happy Birthday Sis 🎂</h1>
+
+<p class="subtext">
+To the one who takes care of me, supports me, and always comes through when I need her 💖
+</p>
+
+<div class="cake">🎂</div>
+
+<button onclick="startExperience()">Start the Surprise 🎉</button>
+
+</header>
+
+<section>
+
+<h2>Happy Birthday Sis 📸</h2>
+
+<div class="photo-collage">
+
+<img src="images/WhatsApp Image 2026-03-08 at 12.43.53.jpeg" class="photo left">
+
+<img src="images/WhatsApp Image 2026-03-08 at 13.04.46.jpeg" class="photo center">
+
+<img src="images/WhatsApp Image 2026-03-08 at 12.43.54.jpeg" class="photo right">
+
+</div>
+
+</section>
+
+<section>
+
+<h2 style="color:#b83280;">A Letter To My To My Guiding Star 💌</h2>
+
+<div class="letter" id="letter">
+
+Dear big sis,
+
+
+
+If I’m being honest, calling you just my “sister” has never really felt like enough… because you’ve been so much more in my life.
+
+You’ve been someone who checks up on me when you don’t have to, corrects me when I’m going the wrong way (even when I stubbornly think I’m right 😅), and somehow always manages to remind me to stay close to God and be better.
+
+And I can’t lie… sometimes you’ve also been my emergency sponsor when life and my wallet decide to fight me. Thank you for always coming through for me. I truly don’t take that for granted.
+
+But more than the help, it’s your heart that means the most to me.  
+The way you care, advise me, encourage me, and still make time to look out for me shows the kind of person you are.
+
+Not everyone is lucky enough to have someone like you in their life… and I know I’m blessed that God gave me you as my sister.
+
+Even when I don’t say it often, please know that I see everything you do and I appreciate you more than words can explain.
+
+On your birthday, my prayer is that God blesses you with the same love, peace, and kindness that you’ve always shown me and the people around you.
+
+Happy Birthday, sis❤️  
+I’m grateful for you today and always.
+</div>
+
+</section>
+
+<footer>
+Made with love 💖
+</footer>
+
+<script>
+
+function closePopup(){
+document.getElementById("popup").style.display="none";
+createFireworks();
+}
+
+function startExperience(){
+document.getElementById("music").play();
+window.scrollTo({top:window.innerHeight,behavior:"smooth"});
+}
+
+/* hearts */
+
+setInterval(()=>{
+const heart=document.createElement("div");
+heart.className="heart";
+heart.innerHTML="💖";
+heart.style.left=Math.random()*100+"vw";
+document.body.appendChild(heart);
+setTimeout(()=>heart.remove(),6000);
+},500);
+
+/* confetti */
+
+setInterval(()=>{
+const confetti=document.createElement("div");
+confetti.className="confetti";
+confetti.style.left=Math.random()*100+"vw";
+confetti.style.background=["red","yellow","blue","pink"][Math.floor(Math.random()*4)];
+document.body.appendChild(confetti);
+setTimeout(()=>confetti.remove(),5000);
+},300);
+
+/* fireworks */
+
+function createFireworks(){
+for(let i=0;i<30;i++){
+const f=document.createElement("div");
+f.className="firework";
+f.style.left=Math.random()*100+"vw";
+f.style.top=Math.random()*100+"vh";
+document.body.appendChild(f);
+setTimeout(()=>f.remove(),1000);
+}
+}
+
+/* typing effect */
+
+const letter=document.getElementById("letter");
+const text=letter.innerHTML;
+letter.innerHTML="";
+let i=0;
+
+function typeLetter(){
+if(i<text.length){
+letter.innerHTML+=text.charAt(i);
+i++;
+setTimeout(typeLetter,20);
+}
+}
+
+setTimeout(typeLetter,1500);
+
+</script>
+
+</body>
+</html>
